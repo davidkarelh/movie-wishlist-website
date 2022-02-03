@@ -1,0 +1,33 @@
+<div class="card bg-dark mb-2">
+  <div class="card-body mx-auto text-light">
+    Register Form
+  </div>
+</div>
+{{#if error}}
+    {{#each errors}}
+        <div class="alert alert-warning" role="alert">
+           <ul>
+               <li style="list-style: none;">
+                   {{ this.msg }}
+               </li>
+           </ul>
+        </div>
+    {{/each}}
+{{/if}}
+
+<div class="card mx-auto mt-5 bg-dark mb-5" style="width: 18rem;">
+    <div class="card-body">
+        <form action="/register" method="POST">
+            <div id="emailHelp" class="form-text text-warning mb-2">Register if you don't have an account!</div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label text-light">Username</label>
+                <input type="text"  class="form-control" id="username" aria-describedby="emailHelp" name="username">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label text-light">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <button type="submit" class="btn btn-success" style="width: 6rem;">Register</button>
+        </form>
+    </div>
+</div>

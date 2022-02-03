@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand text-light" href="/">Hi, {{user.username}}!</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active text-light" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger" href="/logout" >Log Out</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        {{!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> --}}
+        <a href="/wishlist" class="btn btn-outline-success" type="submit">My Wishlist</a>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="container mt-3">
+    <form class="d-flex" action="/">
+        <input class="form-control searchArea" type="search" placeholder="Search movie title here" aria-label="Search" name="title">
+        <button class="ms-3 btn btn-light btn-outline-dark search-btn text-success">Search</button>
+    </form>
+</div>    
+
+<div class="container">
+    <div class="row">
+    {{#if movie}}
+        {{#each movies}}
+          <div class="col-4 mt-3 mb-2">
+              <div class="card bg-dark" style="width: 18rem; height: 630px;">            
+                  <img src="http://image.tmdb.org/t/p/w500{{this.poster_path}}" class="card-img-top" 
+                      style="height: 400px;"
+                      alt="..."/>
+                  <div class="card-body" style="height: 180px;">
+                      <h5 class="card-title text-light">
+                          {{this.original_title}}
+                      </h5>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                      <li class="list-group-item text-light bg-dark">
+                          {{this.release_date}}
+                      </li>
+                  </ul>
+                  <div class="card-body">
+                      <a href="/detail/{{this.id}}" type="button" class="btn btn-light me-4">Detail</a>
+                      {{!-- <a href="/coba/{{this.id}}/{{../queryField}}" type="button" class="btn btn-success float-end" onclick="console.log("lolo")" id="{{this.idd}}">Add to Wishlist</a> --}}
+                      {{#if wishlist}}
+                        <button  type="button" class="btn btn-dark float-end disabled" onclick='clickHandler(this.id)' id="{{this.id}}" disabled>In Your Wishlist</button>
+                      {{else}}
+                        <button  type="button" class="btn btn-success float-end" onclick='clickHandler(this.id)' id="{{this.id}}">Add to Wishlist</button>
+                      {{/if}}
+                  </div>
+              </div>
+          </div>
+        {{/each}}
+    {{/if}}
+    </div>
+</div>
+{{!-- <script src="../index.js"></script> --}}

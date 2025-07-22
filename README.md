@@ -1,6 +1,6 @@
 <h1> Movie Wishlist Website </h1>
 
-<h5>Website ini telah di-<i>deploy</i> ke heroku. Link hasil <i>deploy</i> tersebut adalah https://movie-wishlist-websites.herokuapp.com/</h5>
+<h5>Website ini telah di-<i>deploy</i> ke heroku.</h5>
 <h5>Untuk menjalankan <i>website</i> secara lokal, buat file .env dan masukkan DATABASE_URL, ACCESS_TOKEN_SECRET, dan PORT yang dibutuhkan pada file tersebut.</h5>
 
 <h2> Screenshots</h2>
